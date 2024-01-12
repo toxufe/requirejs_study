@@ -1,0 +1,22 @@
+{
+  "name": "requirejsapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "jquery": "^3.7.1",
+    "loadash": "^1.0.0",
+    "lodash": "^4.17.21",
+    "require-css": "^0.1.10",
+    "requirejs": "^2.3.6",
+    "weui": "^2.6.11",
+    "weui.js": "^1.2.19"
+  }
+}
