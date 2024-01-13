@@ -22,11 +22,25 @@ require.config({
 
 
 // 启动应用
-require(['jquery', 'app','lodash','weui'], function($, app,_,weui) {
+require(['jquery', 'app', 'lodash', 'weui'], function ($, app, _, weui) {
     // 在这里初始化您的应用程序
-    app.index();
-    app.other();
-    app.canvas();
+    // 获取code
+    const code = app.getUrlParam('code')  // 截取路径中的code
+    const token = app.getUrlParam('token') // 截取token
+    if (code == null || code === '') {
+        const local = window.location.href;
+        console.log(local)
+        const appid = 'wx5a43a9faa4fad210'
+        // 测试号
+        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + encodeURIComponent(local) + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+
+
+    }
+
+
+    // app.index();
+    // app.other();
+    // app.canvas();
 
     // weui.alert('alert')
     // var loading = weui.loading('loading', {
@@ -54,6 +68,16 @@ require(['jquery', 'app','lodash','weui'], function($, app,_,weui) {
     //         onClick: function () { alert('确定') }
     //     }]
     // });
+
+    // // 获取当前页面的 URL
+    // const currentUrl = window.location.href;
+    // // 创建 URLSearchParams 对象
+    // const urlParams = new URLSearchParams(currentUrl);
+    // // 获取单个参数的值
+    // const name = urlParams.get('name');
+    // console.log(name);
+
+
 });
 
 
