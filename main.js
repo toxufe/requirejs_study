@@ -15,18 +15,18 @@ require.config({
         'lodash': {
             exports: '_'
         },
-        'weui': ['css!/node_modules/weui/dist/style/weui.min.css'],
+        'weui': ['css!../node_modules/weui/dist/style/weui.min.css'],
     }
 });
 
 
 
 // 启动应用
-require(['jquery', 'app', 'lodash', 'weui'], function ($, app, _, weui) {
+require(['jquery', 'app', 'lodash', 'weui','axios'], function ($, app, _, weui,axios) {
     // 在这里初始化您的应用程序
     // 获取code
     const code = app.getUrlParam('code')  // 截取路径中的code
-    const token = app.getUrlParam('token') // 截取token
+    const state = app.getUrlParam('state') // 截取token
     if (code == null || code === '') {
         const local = window.location.href;
         console.log(local)
@@ -35,6 +35,11 @@ require(['jquery', 'app', 'lodash', 'weui'], function ($, app, _, weui) {
         window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + encodeURIComponent(local) + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
 
 
+    }else{
+        axios.post("https://m.jdzmyy.cn/api/wechat/test", { code: code, state: state }).then(res => {
+            console.log(res.data);
+          
+        })
     }
 
 
