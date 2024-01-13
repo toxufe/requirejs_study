@@ -3,11 +3,11 @@
 require.config({
     baseUrl: 'js', // 设置基本路径
     paths: {
-        'jquery': '/node_modules/jquery/dist/jquery.min', // 设置模块路径
-        'axios': '/node_modules/axios/dist/axios.min',
-        'lodash': '/node_modules/lodash/lodash.min',
-        'weui': '/node_modules/weui.js/dist/weui.min',
-        'css': '/node_modules/require-css/css.min',
+        'jquery': '../node_modules/jquery/dist/jquery.min', // 设置模块路径
+        'axios': '../node_modules/axios/dist/axios.min',
+        'lodash': '../node_modules/lodash/lodash.min',
+        'weui': '../node_modules/weui.js/dist/weui.min',
+        'css': '../node_modules/require-css/css.min',
         'app': './app'
     },
     // config中paths用来配置支持AMD规范的库和js文件，shim是用来配不支持AMD规范的js。
